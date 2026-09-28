@@ -336,6 +336,31 @@ footer p,footer a,footer .footer-tagline,footer .footer-name{color:#d0d9e8!impor
 .service-link:hover h3{color:#fff!important;}
 
 </style>
+<style id="haris-visibility-fix">
+/* Headings under About Me / Why Choose Me / Workflow: always solid, visible text */
+#about,#why,#process{animation:none!important;opacity:1!important;transform:none!important}
+#about .reveal,#why .reveal,#process .reveal{opacity:1!important;transform:none!important}
+#about h2,#why h2,#process h2{
+  display:block!important;visibility:visible!important;opacity:1!important;
+  color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;
+  background:none!important;text-shadow:none!important;
+  position:relative;z-index:2;line-height:1.2;
+}
+#about h2 .name-hl{color:#59d7ff!important;-webkit-text-fill-color:#59d7ff!important}
+#about .eyebrow,#why .eyebrow,#process .eyebrow{position:relative;z-index:2}
+
+/* Footer "Available For Work": was dark text on a dark footer */
+.footer-status,.footer-status *:not(.status-dot){
+  color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;
+  opacity:1!important;font-weight:600;
+}
+.footer-status{font-size:1rem}
+.status-dot{background:#3ddc84!important;box-shadow:0 0 0 4px rgba(61,220,132,.28)!important}
+
+/* Why Choose Me cards were cut off on phones (3 columns at any width) */
+@media (max-width:860px){#whyGrid{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:560px){#whyGrid{grid-template-columns:1fr!important}}
+</style>
 </head>
 <body>
 <div class="bg-glow"></div>
@@ -348,7 +373,7 @@ footer p,footer a,footer .footer-tagline,footer .footer-name{color:#d0d9e8!impor
       <a href="#about">About Me</a>
       <a href="#why">Why Me</a>
       <a href="#portfolio">Portfolio</a>
-      <a href="#services">Service</a>
+      <a href="#services">Services</a>
       <a href="#process">Workflow</a>
       <a href="#reviews">Client Reviews</a>
       <a href="#social">Social Media</a>
@@ -380,7 +405,7 @@ footer p,footer a,footer .footer-tagline,footer .footer-name{color:#d0d9e8!impor
   <div class="wrap about-grid">
     <div class="reveal">
       <span class="eyebrow">About Me</span>
-      <div class="section-head"><h2>About Me – Muhammad Haris</h2></div>
+      <div class="section-head"><h2>About Me – <span class="name-hl">Muhammad Haris</span></h2></div>
       <div class="about-copy">
         <p>I'm Muhammad Haris, an AI Ads Creator passionate about turning creative ideas into powerful, engaging video advertisements. I specialize in AI-generated video ads, CGI commercials, and UGC-style content that help brands showcase their products, capture attention, and connect with their audiences.</p>
         <p>My goal is to combine creativity, innovation, and storytelling to create visually stunning ads that help businesses grow, build brand awareness, and stand out in the digital world.</p>
