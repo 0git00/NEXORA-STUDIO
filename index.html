@@ -580,9 +580,9 @@ modalPlayer.addEventListener('dblclick', () => {
 
 // services
 const services = [
-  {icon:'🖼️', title:'AI Ads Poster', desc:'Striking AI-generated poster designs for campaigns and promotions.', link:'ai-ads.html'},
-  {icon:'🧊', title:'AI CGI Ads', desc:'Photoreal AI CGI visuals for product and brand advertisements.', link:'cgi-ads.html'},
-  {icon:'👤', title:'AI UGC Ads', desc:'Authentic, creator-style AI UGC ads built for social feeds.', link:'ugc-ads.html'}
+  {icon:'🖼️', title:'AI Ads Poster', desc:'Striking AI-generated poster designs for campaigns and promotions.', link:'Ai_Ads_Poster.html'},
+  {icon:'🧊', title:'AI CGI Ads', desc:'Photoreal AI CGI visuals for product and brand advertisements.', link:'Cgi_Ads.html'},
+  {icon:'👤', title:'AI UGC Ads', desc:'Authentic, creator-style AI UGC ads built for social feeds.', link:'ugc_ads.html'}
 ];
 document.getElementById('servicesGrid').innerHTML = services.map((s) =>
   `<a class="scard service-link" href="${s.link || '#'}" ${s.link ? 'aria-label="Open ' + s.title + ' showcase"' : ''}><div class="sicon">${s.icon}</div><div class="scard-text"><h3>${s.title}</h3><p>${s.desc}</p></div>${s.link ? '<span class="service-arrow" aria-hidden="true">↗</span>' : ''}</a>`).join('');
