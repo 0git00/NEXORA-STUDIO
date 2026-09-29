@@ -37,7 +37,7 @@ section{padding:100px 0;}
   var(--bg);}
 
 /* NAV */
-nav{position:sticky; top:0; z-index:50; background:rgba(8,11,20,.75); backdrop-filter:blur(14px); border-bottom:1px solid var(--panel-b); padding-top: env(safe-area-inset-top,0px);}
+nav{position:sticky; top:env(safe-area-inset-top,0px); z-index:50; background:rgba(8,11,20,.75); backdrop-filter:blur(14px); border-bottom:1px solid var(--panel-b);}
 .nav-row{display:flex; align-items:center; justify-content:space-between; height:76px;}
 .logo{font-weight:800; font-size:1.25rem; letter-spacing:.02em; display:flex; align-items:center; gap:10px;}
 .logo img{width:46px; height:46px; border-radius:50%; object-fit:cover; background:transparent;}
@@ -192,7 +192,7 @@ footer{border-top:1px solid var(--panel-b); padding:50px 0 24px; color:var(--ink
 @media (max-width:860px){
   .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
   .grid-3,.tgrid{grid-template-columns:1fr 1fr;}
-  #servicesGrid.grid-3s{grid-template-columns:repeat(3,1fr); gap:14px;}
+  #servicesGrid.grid-3s{grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px;}
   .nav-links{display:none; position:absolute; top:76px; left:0; right:0; flex-direction:column; gap:0; background:rgba(8,11,20,.97); border-bottom:1px solid var(--panel-b); padding:10px 24px 16px;}
   .nav-links.open{display:flex;}
   .nav-links a{padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06);}
@@ -202,8 +202,8 @@ footer{border-top:1px solid var(--panel-b); padding:50px 0 24px; color:var(--ink
 }
 @media (max-width:560px){
   .grid-3,.tgrid{grid-template-columns:1fr;}
-  #servicesGrid.grid-3s{grid-template-columns:repeat(3,1fr); gap:8px;}
-  .scard{flex-direction:column; align-items:flex-start; padding:16px 12px;}
+  #servicesGrid.grid-3s{grid-template-columns:1fr; gap:14px;}
+  .scard{padding:22px 18px;}
 }
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important; transition:none !important;}
@@ -280,8 +280,8 @@ p,li,.subtitle,.description,.sub,.about-copy,.eyebrow{color:#d0d9e8!important}
 input,textarea,select{background:#090d16!important;color:#fff!important;border:1px solid rgba(64,155,255,.55)!important}
 input::placeholder,textarea::placeholder{color:#aab8ce!important;opacity:1}
 .modal{backdrop-filter:blur(12px)}
-.sc ard{background:#05070c!important}
-.sc ard:hover,.scard:hover,.tcard:hover,.vcard:hover,.quote:hover,.card:hover,.service-card:hover,.project-card:hover,.portfolio-card:hover,.testimonial-card:hover,.review-card:hover,.work-card:hover,[class*="card"]:hover{border-color:#168cff!important;box-shadow:0 18px 48px rgba(0,110,255,.24)!important}
+
+.scard:hover,.tcard:hover,.vcard:hover,.quote:hover,.card:hover,.service-card:hover,.project-card:hover,.portfolio-card:hover,.testimonial-card:hover,.review-card:hover,.work-card:hover,[class*="card"]:hover{border-color:#168cff!important;box-shadow:0 18px 48px rgba(0,110,255,.24)!important}
 section{animation:harisFadeUp .75s ease both}
 section:nth-of-type(2){animation-delay:.04s}section:nth-of-type(3){animation-delay:.08s}section:nth-of-type(4){animation-delay:.12s}
 .btn,.filter-btn,.social-btn{transition:transform .28s ease,box-shadow .28s ease,background .28s ease!important}
@@ -360,6 +360,13 @@ footer p,footer a,footer .footer-tagline,footer .footer-name{color:#d0d9e8!impor
 /* Why Choose Me cards were cut off on phones (3 columns at any width) */
 @media (max-width:860px){#whyGrid{grid-template-columns:repeat(2,1fr)!important}}
 @media (max-width:560px){#whyGrid{grid-template-columns:1fr!important}}
+
+/* Bug fixes */
+.modal-close{background:rgba(255,255,255,.16)!important;color:#fff!important;border:1px solid rgba(255,255,255,.45)!important;z-index:2}
+.modal-close:hover{background:rgba(255,255,255,.28)!important}
+.hero-ctas img{animation:none!important}
+@keyframes harisPhotoFloat{0%,100%{transform:scale(1.04) translateY(0)}50%{transform:scale(1.04) translateY(-6px)}}
+@media (prefers-reduced-motion:no-preference){.hero-photo-wrap img{animation:harisPhotoFloat 6s ease-in-out infinite!important}}
 </style>
 </head>
 <body>
@@ -417,15 +424,14 @@ footer p,footer a,footer .footer-tagline,footer .footer-name{color:#d0d9e8!impor
 
 <section id="why">
   <div class="wrap reveal">
-    <span class="eyebrow"></span>
-    <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem); font-weight:800; margin-bottom:30px;">Why Choose Me</h2>
+    <span class="eyebrow" style="margin-bottom:22px;">Why Choose Me</span>
     <div class="grid-3s" id="whyGrid"></div>
   </div>
 </section>
 
 <section id="portfolio">
   <div class="wrap reveal">
-    <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem); font-weight:800; margin-bottom:30px;">My Best AI Ads</h2>
+    <span class="eyebrow" style="margin-bottom:22px;">My Best AI Ads</span>
     <div class="grid-3" id="videoGrid"></div>
   </div>
 </section>
@@ -443,15 +449,14 @@ footer p,footer a,footer .footer-tagline,footer .footer-name{color:#d0d9e8!impor
 
 <section id="services">
   <div class="wrap reveal">
-    <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem); font-weight:800; margin-bottom:34px;">What I Offer</h2>
+    <span class="eyebrow" style="margin-bottom:22px;">What I Offer</span>
     <div class="grid-3s" id="servicesGrid"></div>
   </div>
 </section>
 
 <section id="process">
   <div class="wrap reveal">
-    <span class="eyebrow"></span>
-    <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem); font-weight:800; margin-bottom:40px;">Workflow</h2>
+    <span class="eyebrow" style="margin-bottom:22px;">Workflow</span>
     <div class="timeline" id="processTimeline"></div>
   </div>
 </section>
@@ -549,7 +554,7 @@ function renderVideos(filter){
     card.className = 'vcard reveal';
     card.style.transitionDelay = (i*0.07)+'s';
     const thumbInner = v.video
-      ? `<video class="thumb-video" src="${v.video}" muted loop playsinline preload="metadata"></video>`
+      ? `<video class="thumb-video" src="${v.video}#t=0.1" muted loop playsinline preload="metadata"></video>`
       : '';
     card.innerHTML = `<div class="thumb">${thumbInner}</div>
       <div class="body"><h3>${v.title}</h3><p>${v.desc}</p><span class="tag">${v.cat}</span></div>`;
@@ -574,7 +579,6 @@ function openModal(v){
   document.getElementById('modalDesc').textContent = v.desc;
   const player = document.getElementById('modalVideo');
   player.pause();
-  player.pause();
   player.controls = false;
   player.removeAttribute('controls');
   player.src = v.video || '';
@@ -589,9 +593,12 @@ function closeVideoModal(){
 }
 document.getElementById('modalClose').addEventListener('click', closeVideoModal);
 modal.addEventListener('click', e => { if(e.target === modal) closeVideoModal(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('open')) closeVideoModal(); });
 // First click/tap starts playback and reveals native controls. Double-click/tap
 // opens the video fullscreen, where the browser's usual controls are available.
 modalPlayer.addEventListener('click', () => {
+  // Controls already visible: let the native controls handle play/pause.
+  if (modalPlayer.hasAttribute('controls')) return;
   modalPlayer.controls = true;
   modalPlayer.setAttribute('controls', '');
   if (modalPlayer.paused) modalPlayer.play().catch(() => {});
